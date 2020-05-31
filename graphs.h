@@ -55,12 +55,15 @@ public:
         if(Archive.is_open())
             cout << "Opened Archive!" << endl;
 
-        getline(Archive, line);
-     
-        V = line[0] - '0';
-        E = line[2] - '0';
+        char OrienteLatter;
 
-            if(line[4] != 'G')
+        Archive >> V;
+        Archive >> E;
+        Archive >> OrienteLatter;
+
+        //getline(Archive, line);
+
+            if(OrienteLatter != 'G')
              is_ordened = true;
             else
              is_ordened = false;
@@ -97,6 +100,7 @@ public:
         while(!Archive.eof()){
 
             if(cont >= 3){
+                
                 matriz[line[0] - 1][line[1] - 1] = line[2];
                 cout << "matriz" << "[" << line[0] << "]" << "[" << line[1] << "]" << " = " << line[2] << endl;
                 cont = 0;
